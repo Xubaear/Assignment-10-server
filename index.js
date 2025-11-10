@@ -28,7 +28,16 @@ const db = client.db("TransactionDB");
 
     console.log("✅ MongoDB Connected");
 
+    app.post('/add-transaction', async (req, res) => {
+      const data = req.body;
+      const result = await transactionCollection.insertOne(data);
+      res.send(result);
+    });
 
+app.get('/transactions', async (req, res) => {
+      const result = await transactionCollection.find().toArray();
+      res.send(result);
+    });
 
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
