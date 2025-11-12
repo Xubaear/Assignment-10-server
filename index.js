@@ -24,7 +24,7 @@ async function run() {
     const db = client.db("TransactionDB")
     const transactionCollection = db.collection("transactions")
 
-    console.log("✅ MongoDB Connected Successfully")
+    console.log("MongoDB Connected Successfully")
 
    
     app.post('/add-transaction', async (req, res) => {
@@ -72,10 +72,10 @@ async function run() {
     })
 
     app.get('/', (req, res) => {
-      res.send('✅ Server is running smoothly!')
+      res.send('Server is running smoothly!')
     })
   } catch (error) {
-    console.error(" Error connecting MongoDB:", error)
+    console.error("Error connecting MongoDB:", error)
   }
 }
 
